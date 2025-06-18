@@ -1,102 +1,50 @@
-2025-06-17 09:35:25.600 Conectado al servidor 192.168.0.10:12345
-2025-06-17 09:35:25.601 Enviando: kiritoro 0
-2025-06-17 09:35:25.604 Recibido del servidor: kiritoro 1
-2025-06-17 09:35:26.604 Enviando: kiritoro 2
-2025-06-17 09:35:26.607 Recibido del servidor: kiritoro 3
-2025-06-17 09:35:27.608 Enviando: kiritoro 4
-2025-06-17 09:35:27.610 Recibido del servidor: kiritoro 5
-2025-06-17 09:35:28.611 Enviando: kiritoro 6
-2025-06-17 09:35:28.614 Recibido del servidor: kiritoro 7
-2025-06-17 09:35:29.615 Enviando: kiritoro 8
-2025-06-17 09:35:29.617 Recibido del servidor: kiritoro 9
-2025-06-17 09:35:30.618 Enviando: kiritoro 10
-2025-06-17 09:35:30.621 Recibido del servidor: kiritoro 11
-2025-06-17 09:35:31.621 Enviando: kiritoro 12
-2025-06-17 09:35:31.624 Recibido del servidor: kiritoro 13
-2025-06-17 09:35:32.624 Enviando: kiritoro 14
-2025-06-17 09:35:32.627 Recibido del servidor: kiritoro 15
-2025-06-17 09:35:33.627 Enviando: kiritoro 16
-2025-06-17 09:35:33.630 Recibido del servidor: kiritoro 17
-2025-06-17 09:35:34.630 Enviando: kiritoro 18
-2025-06-17 09:35:34.633 Recibido del servidor: kiritoro 19
-2025-06-17 09:35:35.633 Enviando: kiritoro 20
-2025-06-17 09:35:35.636 Recibido del servidor: kiritoro 21
-2025-06-17 09:35:36.636 Enviando: kiritoro 22
-2025-06-17 09:35:36.639 Recibido del servidor: kiritoro 23
-2025-06-17 09:35:37.639 Enviando: kiritoro 24
-2025-06-17 09:35:37.642 Recibido del servidor: kiritoro 25
-2025-06-17 09:35:38.643 Enviando: kiritoro 26
-2025-06-17 09:35:38.646 Recibido del servidor: kiritoro 27
-2025-06-17 09:35:39.646 Enviando: kiritoro 28
-2025-06-17 09:35:39.652 Recibido del servidor: kiritoro 29
-2025-06-17 09:35:40.652 Enviando: kiritoro 30
-2025-06-17 09:35:40.654 Recibido del servidor: kiritoro 31
-2025-06-17 09:35:41.655 Enviando: kiritoro 32
-2025-06-17 09:35:41.658 Recibido del servidor: kiritoro 33
-2025-06-17 09:35:42.663 Enviando: kiritoro 34
-2025-06-17 09:35:42.666 Recibido del servidor: kiritoro 35
-2025-06-17 09:35:43.666 Enviando: kiritoro 36
-2025-06-17 09:35:43.669 Recibido del servidor: kiritoro 37
-2025-06-17 09:35:44.669 Enviando: kiritoro 38
-2025-06-17 09:35:44.672 Recibido del servidor: kiritoro 39
-2025-06-17 09:35:45.672 Enviando: kiritoro 40
-2025-06-17 09:35:45.675 Recibido del servidor: kiritoro 41
-2025-06-17 09:35:46.675 Enviando: kiritoro 42
-2025-06-17 09:35:46.678 Recibido del servidor: kiritoro 43
-2025-06-17 09:35:47.678 Enviando: kiritoro 44
-2025-06-17 09:35:47.680 Recibido del servidor: kiritoro 45
-2025-06-17 09:35:48.681 Enviando: kiritoro 46
-2025-06-17 09:35:48.683 Recibido del servidor: kiritoro 47
-2025-06-17 09:35:49.683 Enviando: kiritoro 48
-2025-06-17 09:35:49.686 Recibido del servidor: kiritoro 49
-2025-06-17 09:35:50.686 Enviando: kiritoro 50
-2025-06-17 09:35:50.689 Recibido del servidor: kiritoro 51
-2025-06-17 09:35:51.689 Enviando: kiritoro 52
-2025-06-17 09:35:51.692 Recibido del servidor: kiritoro 53
-2025-06-17 09:35:52.699 Enviando: kiritoro 54
-2025-06-17 09:35:52.701 Recibido del servidor: kiritoro 55
-2025-06-17 09:35:53.703 Enviando: kiritoro 56
-2025-06-17 09:35:53.706 Recibido del servidor: kiritoro 57
-2025-06-17 09:35:54.706 Enviando: kiritoro 58
-2025-06-17 09:35:54.708 Recibido del servidor: kiritoro 59
-2025-06-17 09:35:55.709 Enviando: kiritoro 60
-2025-06-17 09:35:55.712 Recibido del servidor: kiritoro 61
-2025-06-17 09:35:56.712 Enviando: kiritoro 62
-2025-06-17 09:35:56.715 Recibido del servidor: kiritoro 63
-2025-06-17 09:35:57.716 Enviando: kiritoro 64
-2025-06-17 09:35:57.718 Recibido del servidor: kiritoro 65
-2025-06-17 09:35:58.719 Enviando: kiritoro 66
-2025-06-17 09:35:58.722 Recibido del servidor: kiritoro 67
-2025-06-17 09:35:59.722 Enviando: kiritoro 68
-2025-06-17 09:35:59.725 Recibido del servidor: kiritoro 69
-2025-06-17 09:36:00.726 Enviando: kiritoro 70
-2025-06-17 09:36:00.729 Recibido del servidor: kiritoro 71
-2025-06-17 09:36:01.729 Enviando: kiritoro 72
-2025-06-17 09:36:01.732 Recibido del servidor: kiritoro 73
-2025-06-17 09:36:02.733 Enviando: kiritoro 74
-2025-06-17 09:36:02.735 Recibido del servidor: kiritoro 75
-2025-06-17 09:36:03.736 Enviando: kiritoro 76
-2025-06-17 09:36:03.738 Recibido del servidor: kiritoro 77
-2025-06-17 09:36:04.739 Enviando: kiritoro 78
-2025-06-17 09:36:04.742 Recibido del servidor: kiritoro 79
-2025-06-17 09:36:05.743 Enviando: kiritoro 80
-2025-06-17 09:36:05.746 Recibido del servidor: kiritoro 81
-2025-06-17 09:36:06.747 Enviando: kiritoro 82
-2025-06-17 09:36:06.749 Recibido del servidor: kiritoro 83
-2025-06-17 09:36:07.750 Enviando: kiritoro 84
-2025-06-17 09:36:07.753 Recibido del servidor: kiritoro 85
-2025-06-17 09:36:08.753 Enviando: kiritoro 86
-2025-06-17 09:36:08.756 Recibido del servidor: kiritoro 87
-2025-06-17 09:36:09.757 Enviando: kiritoro 88
-2025-06-17 09:36:09.759 Recibido del servidor: kiritoro 89
-2025-06-17 09:36:10.760 Enviando: kiritoro 90
-2025-06-17 09:36:10.763 Recibido del servidor: kiritoro 91
-2025-06-17 09:36:11.764 Enviando: kiritoro 92
-2025-06-17 09:36:11.765 Recibido del servidor: kiritoro 93
-2025-06-17 09:36:12.766 Enviando: kiritoro 94
-2025-06-17 09:36:12.768 Recibido del servidor: kiritoro 95
-2025-06-17 09:36:13.769 Enviando: kiritoro 96
-2025-06-17 09:36:13.772 Recibido del servidor: kiritoro 97
-2025-06-17 09:36:14.773 Enviando: kiritoro 98
-2025-06-17 09:36:14.776 Recibido del servidor: kiritoro 99
-2025-06-17 09:36:14.776 Cliente finalizó el envío de paquetes.
+2025-06-18 14:41:27.822 Conectado al servidor 192.168.0.10:12345
+2025-06-18 14:41:27.828 Clave pública recibida: 450 bytes
+2025-06-18 14:41:27.870 Session key generada: 90c27cf79cc4219f28271043205c92af, ciphertext: 256 bytes
+2025-06-18 14:41:27.871 Sesion key 90c27cf79cc4219f28271043205c92af
+2025-06-18 14:41:27.871 Enviando: kiritoro 0
+2025-06-18 14:41:28.197 Recibido del servidor: kiritoro 1
+2025-06-18 14:41:29.198 Enviando: kiritoro 2
+2025-06-18 14:41:29.201 Recibido del servidor: kiritoro 3
+2025-06-18 14:41:30.202 Enviando: kiritoro 4
+2025-06-18 14:41:30.206 Recibido del servidor: kiritoro 5
+2025-06-18 14:41:31.207 Enviando: kiritoro 6
+2025-06-18 14:41:31.210 Recibido del servidor: kiritoro 7
+2025-06-18 14:41:32.211 Enviando: kiritoro 8
+2025-06-18 14:41:32.214 Recibido del servidor: kiritoro 9
+2025-06-18 14:41:33.215 Enviando: kiritoro 10
+2025-06-18 14:41:33.218 Recibido del servidor: kiritoro 11
+2025-06-18 14:41:34.218 Enviando: kiritoro 12
+2025-06-18 14:41:34.222 Recibido del servidor: kiritoro 13
+2025-06-18 14:41:35.223 Enviando: kiritoro 14
+2025-06-18 14:41:35.225 Recibido del servidor: kiritoro 15
+2025-06-18 14:41:36.226 Enviando: kiritoro 16
+2025-06-18 14:41:36.229 Recibido del servidor: kiritoro 17
+2025-06-18 14:41:37.229 Enviando: kiritoro 18
+2025-06-18 14:41:37.232 Recibido del servidor: kiritoro 19
+2025-06-18 14:41:37.233 Cliente finalizó el envío de paquetes.
+2025-06-18 14:43:22.682 Conectado al servidor 192.168.0.10:12345
+2025-06-18 14:43:22.684 Clave pública recibida: 450 bytes
+2025-06-18 14:43:22.723 Session key generada: 127c64d2c5ff83b00b0ee830a42c9c65, ciphertext: 256 bytes
+2025-06-18 14:43:22.724 Sesion key 127c64d2c5ff83b00b0ee830a42c9c65
+2025-06-18 14:43:22.724 Enviando: kiritoro 0
+2025-06-18 14:43:22.985 Recibido del servidor: kiritoro 1
+2025-06-18 14:43:23.986 Enviando: kiritoro 2
+2025-06-18 14:43:23.990 Recibido del servidor: kiritoro 3
+2025-06-18 14:43:24.991 Enviando: kiritoro 4
+2025-06-18 14:43:24.994 Recibido del servidor: kiritoro 5
+2025-06-18 14:43:25.995 Enviando: kiritoro 6
+2025-06-18 14:43:25.998 Recibido del servidor: kiritoro 7
+2025-06-18 14:43:26.999 Enviando: kiritoro 8
+2025-06-18 14:43:27.002 Recibido del servidor: kiritoro 9
+2025-06-18 14:43:28.002 Enviando: kiritoro 10
+2025-06-18 14:43:28.010 Recibido del servidor: kiritoro 11
+2025-06-18 14:43:29.012 Enviando: kiritoro 12
+2025-06-18 14:43:29.015 Recibido del servidor: kiritoro 13
+2025-06-18 14:43:30.015 Enviando: kiritoro 14
+2025-06-18 14:43:30.018 Recibido del servidor: kiritoro 15
+2025-06-18 14:43:31.019 Enviando: kiritoro 16
+2025-06-18 14:43:31.022 Recibido del servidor: kiritoro 17
+2025-06-18 14:43:32.023 Enviando: kiritoro 18
+2025-06-18 14:43:32.025 Recibido del servidor: kiritoro 19
+2025-06-18 14:43:32.026 Cliente finalizó el envío de paquetes.
