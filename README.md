@@ -289,7 +289,7 @@ Se muestra un paquete UDP capturado. En Wireshark, se resalta la sección **User
 
 ## 4) Encriptación
 
-### a) 🔐 Encriptación Simétrica
+### a)  Encriptación Simétrica
 
 **Características:**
 - Utiliza una única clave secreta para cifrar y descifrar datos.
@@ -310,7 +310,7 @@ Se muestra un paquete UDP capturado. En Wireshark, se resalta la sección **User
 
 ---
 
-### 🔐 Encriptación Asimétrica
+###  Encriptación Asimétrica
 
 **Características:**
 - Utiliza un par de claves: una pública (para cifrar) y una privada (para descifrar).
@@ -331,7 +331,7 @@ Se muestra un paquete UDP capturado. En Wireshark, se resalta la sección **User
 
 ---
 
-### 🧩 Ejemplo mixto: Modelo híbrido
+###  Ejemplo mixto: Modelo híbrido
 
 La mayoría de los sistemas modernos usan un esquema híbrido:
 1. Utilizan **encriptación asimétrica (RSA)** para intercambiar de forma segura una clave simétrica.
@@ -356,7 +356,7 @@ Esto combina:
 
 ---
 
-### b) 🔧 Librería utilizada: PyCryptodome
+### b)  Librería utilizada: PyCryptodome
 
 Se seleccionó la librería **PyCryptodome**, que permite implementar cifrado **simétrico (AES)** y **asimétrico (RSA)**, junto con otras funcionalidades como MAC, hashing, y más.
 
@@ -390,7 +390,7 @@ En contraste, en esta nueva versión la carga útil aparece como datos binarios 
 
 En un escenario donde dos computadoras se encuentran geográficamente separadas y **no han intercambiado información previamente**, se recomienda utilizar **criptografía asimétrica** para establecer un canal seguro inicial. A través de este canal, se intercambia una **clave simétrica**, que luego se usa para cifrar eficientemente toda la comunicación.
 
-#### ✅ Pasos conceptuales para implementar este esquema:
+####  Pasos conceptuales para implementar este esquema:
 
 1. **Generación de claves asimétricas (RSA):**
    - Cada computadora genera un par de claves: una pública y una privada.
@@ -410,7 +410,7 @@ En un escenario donde dos computadoras se encuentran geográficamente separadas 
    - Todo el contenido transmitido se cifra utilizando esa clave simétrica (AES).
    - Esto permite mantener **eficiencia y seguridad** en la comunicación continua.
 
-#### 🔧 Aplicación práctica al proyecto:
+####  Aplicación práctica al proyecto:
 
 En el contexto de los scripts desarrollados (TCP/UDP), se podría implementar este mecanismo de la siguiente forma:
 
