@@ -197,10 +197,227 @@ J = (1 / (N - 1)) * ∑ |L_i - L_{i-1}| , para i = 2 hasta N
 - **RTT promedio:** 0.002760 s  
 - **RTT mínima:** 0.001000 s  
 - **RTT máxima:** 0.006000 s  
-- **Jitter promedio:** 0.000612 s  
+- **Jitter promedio:** 0.000612 s
+
 
 ---
 
 ### a) Paquete UDP
 
 Se muestra un paquete UDP capturado. En Wireshark, se resalta la sección **User Datagram Protocol**, y dentro de ella se puede observar la subsección **Data**, donde se encuentra la carga útil del paquete.
+
+![image](https://github.com/user-attachments/assets/a3abf1e0-71d5-4b5e-ad41-fb6dcfe02630)
+
+### c) Cálculo de latencias y jitter
+
+#### Resumen RTT (100 paquetes analizados)
+
+- **RTT promedio:** 0.002520 s  
+- **RTT mínima:** 0.001000 s  
+- **RTT máxima:** 0.004000 s  
+- **Jitter promedio:** 0.000531 s  
+
+---
+
+### Comparación entre paquetes UDP y TCP
+
+**Carga útil:**
+
+- **UDP:** La carga útil comienza tras los 8 bytes de encabezado UDP.  
+  El campo `Length` indica el total de bytes del segmento UDP, donde una parte corresponde al payload.  
+  No hay campos de secuencia ni flags.
+
+- **TCP:** La carga útil comienza tras los 20 bytes (o más, si hay opciones) del encabezado TCP.  
+  Se incluyen campos como:
+  - `Seq=...`, `Ack=...`
+  - `Flags=ACK+PSH`, `Window=...`
+  - Si hay opciones, el encabezado puede superar los 20 bytes.
+
+---
+
+#### Qué observar al comparar
+
+**Longitudes de encabezado:**
+- **UDP:** Siempre 8 bytes.
+- **TCP:** Mínimo 20 bytes, pero puede ser mayor si incluye opciones (por ejemplo, Timestamps).
+
+**Campos exclusivos de TCP:**
+- `Sequence Number`
+- `Acknowledgment Number`
+- `Flags` (SYN, ACK, FIN, RST, PSH, URG, etc.)
+- `Window Size`
+- `Urgent Pointer`
+- `Options`
+
+**Campos de UDP:**
+- `Puerto origen`
+- `Puerto destino`
+- `Longitud`
+- `Checksum`
+
+**Cálculo del offset al payload en la trama cruda (raw frame):**
+- **UDP:** El payload comienza después de `(Encabezado Ethernet + IP header + 8 bytes UDP)`.
+- **TCP:** El payload comienza después de `(Encabezado Ethernet + IP header + longitud del encabezado TCP)`.
+
+![image](https://github.com/user-attachments/assets/81d656db-d808-4db4-aecf-a682102e7b1a)
+![image](https://github.com/user-attachments/assets/f099a45b-429e-469d-8c58-62112972f722)
+
+## Comparativa de Métricas TCP vs UDP
+
+| Métrica              | TCP       | UDP       |
+|----------------------|-----------|-----------|
+| Paquetes considerados| 100       | 100       |
+| RTT promedio (s)     | 0.002760  | 0.002520  |
+| RTT mínima (s)       | 0.001000  | 0.001000  |
+| RTT máxima (s)       | 0.006000  | 0.004000  |
+| Jitter promedio (s)  | 0.000612  | 0.000531  |
+
+### Interpretación de resultados
+
+- El **RTT promedio** es ligeramente menor en UDP (0.00252 s vs. 0.00276 s). Esto puede deberse a la menor sobrecarga de control de conexión en UDP.
+- La **RTT máxima** es más alta en TCP (0.006 s vs. 0.004 s), probablemente por retransmisiones o control de congestión.
+- El **jitter promedio** también es algo mayor en TCP, reflejando mayor variabilidad en la transmisión.
+- La **RTT mínima** es igual en ambos protocolos (0.001 s), lo que indica que en condiciones óptimas ambos alcanzan rendimientos similares.
+
+### Consideraciones adicionales
+
+- **Confiabilidad vs. latencia:**  
+  UDP ofrece menor latencia pero **sin garantías de entrega ni orden**.  
+  TCP asegura la entrega y el orden, pero introduce retransmisiones y control de congestión, lo que puede aumentar RTT y jitter bajo pérdida de paquetes.
+
+---
+
+## 4) Encriptación
+
+### a) 🔐 Encriptación Simétrica
+
+**Características:**
+- Utiliza una única clave secreta para cifrar y descifrar datos.
+- La clave debe ser conocida por emisor y receptor previamente.
+- Es mucho más rápida y eficiente, ideal para grandes volúmenes de datos.
+
+**Ventajas:**
+- Bajo consumo de recursos.
+- Alta velocidad de cifrado/descifrado.
+- Sencillez en la implementación.
+
+**Desventajas:**
+- El mayor problema es la distribución de la clave: si se intercepta, se compromete toda la comunicación.
+- No permite firmas digitales ni autenticación (cualquiera con la clave puede cifrar/descifrar).
+
+**Algoritmos comunes:**
+- AES (128, 192, 256 bits), DES, 3DES, Blowfish, ChaCha20.
+
+---
+
+### 🔐 Encriptación Asimétrica
+
+**Características:**
+- Utiliza un par de claves: una pública (para cifrar) y una privada (para descifrar).
+- La clave pública puede compartirse libremente, la privada debe mantenerse en secreto.
+
+**Ventajas:**
+- No requiere compartir claves privadas, lo que mejora la seguridad.
+- Permite firmas digitales, autenticación y no repudio.
+- Escalable para redes grandes y sistemas distribuidos.
+
+**Desventajas:**
+- Es mucho más lenta y consume más recursos que la encriptación simétrica.
+- Las claves son de gran tamaño (ej. RSA de 2048 bits o más).
+- Si se pierde la clave privada, no es posible recuperar la información cifrada.
+
+**Algoritmos comunes:**
+- RSA, ECC, DSA, Diffie-Hellman.
+
+---
+
+### 🧩 Ejemplo mixto: Modelo híbrido
+
+La mayoría de los sistemas modernos usan un esquema híbrido:
+1. Utilizan **encriptación asimétrica (RSA)** para intercambiar de forma segura una clave simétrica.
+2. Luego, se usa esa **clave simétrica (AES)** para cifrar los datos de la sesión.
+
+Esto combina:
+- La **seguridad de la criptografía asimétrica** para el inicio del canal.
+- La **eficiencia de la criptografía simétrica** para el volumen de datos.
+
+---
+
+### Tabla comparativa
+
+| Característica        | Encriptación Simétrica | Encriptación Asimétrica         |
+|-----------------------|------------------------|----------------------------------|
+| Claves                | Una sola compartida    | Par (pública + privada)          |
+| Rendimiento           | Muy rápida y eficiente | Lenta y costosa computacionalmente |
+| Distribución          | Difícil y riesgosa     | Clave pública libre              |
+| Seguridad             | Depende del secreto    | Alta (clave privada protegida)   |
+| Escalabilidad         | Limitada               | Excelente en sistemas distribuidos |
+| Funcionalidades extra | Confidencialidad       | Confidencialidad + firma digital |
+
+---
+
+### b) 🔧 Librería utilizada: PyCryptodome
+
+Se seleccionó la librería **PyCryptodome**, que permite implementar cifrado **simétrico (AES)** y **asimétrico (RSA)**, junto con otras funcionalidades como MAC, hashing, y más.
+
+#### Modelo híbrido implementado:
+1. Se genera una clave simétrica `session_key` (AES).
+2. Esta clave se cifra usando RSA (con OAEP).
+3. Los mensajes se cifran con AES en modo EAX o GCM (que permite verificar la integridad).
+
+#### Características del enfoque:
+- **Híbrido:** combina seguridad (RSA) + eficiencia (AES).
+- **Integridad:** los modos AES-EAX o GCM permiten verificar si el mensaje fue alterado.
+- **Flexible:** se puede usar sobre TCP o UDP.
+- **Completo:** incluye cifrado, firmas digitales, hashing, KDFs, etc.
+
+---
+
+### c) Verificación de encriptación en tráfico
+
+Se ejecutaron los scripts con el modelo híbrido implementado.  
+En Wireshark, al analizar un paquete aleatorio de la secuencia:
+
+- La carga útil **no es legible** y aparece como una secuencia de bytes aleatorios.
+- Esto confirma que el mensaje está efectivamente cifrado.
+
+Se comparó con capturas obtenidas en los ítems 1.a) y 2.a), donde la carga útil era visible (por ejemplo: `"kiritoro 4"`).  
+En contraste, en esta nueva versión la carga útil aparece como datos binarios irreconocibles, lo cual verifica el correcto cifrado del contenido.
+
+![image](https://github.com/user-attachments/assets/637ac0bd-3484-4a84-9932-f842520a1746)
+
+### d) ¿Cómo encriptar la comunicación entre dos computadoras distantes sin contacto previo?
+
+En un escenario donde dos computadoras se encuentran geográficamente separadas y **no han intercambiado información previamente**, se recomienda utilizar **criptografía asimétrica** para establecer un canal seguro inicial. A través de este canal, se intercambia una **clave simétrica**, que luego se usa para cifrar eficientemente toda la comunicación.
+
+#### ✅ Pasos conceptuales para implementar este esquema:
+
+1. **Generación de claves asimétricas (RSA):**
+   - Cada computadora genera un par de claves: una pública y una privada.
+   - La clave pública puede compartirse abiertamente.
+   - La clave privada se guarda de forma segura y nunca se transmite.
+
+2. **Intercambio de claves públicas:**
+   - Al comenzar la conexión, cliente y servidor intercambian sus claves públicas.
+
+3. **Distribución segura de la clave simétrica:**
+   - El cliente genera una clave simétrica aleatoria (por ejemplo, AES-256).
+   - Luego cifra esa clave utilizando la **clave pública del servidor**.
+   - El servidor la descifra usando su **clave privada**.
+   - Ahora ambas partes comparten una clave simétrica segura.
+
+4. **Comunicación cifrada:**
+   - Todo el contenido transmitido se cifra utilizando esa clave simétrica (AES).
+   - Esto permite mantener **eficiencia y seguridad** en la comunicación continua.
+
+#### 🔧 Aplicación práctica al proyecto:
+
+En el contexto de los scripts desarrollados (TCP/UDP), se podría implementar este mecanismo de la siguiente forma:
+
+- Incluir una **fase de "handshake" inicial**, donde el cliente obtiene la clave pública del servidor.
+- Utilizar una librería como `PyCryptodome` para generar las claves RSA, cifrar la clave AES y realizar el cifrado simétrico.
+- Asegurar que la clave simétrica se mantenga solo en memoria durante la sesión.
+- Cifrar la carga útil antes de enviar cada paquete, y descifrarla al recibirlo.
+
+Este enfoque se basa en el mismo principio que usan los protocolos modernos como **TLS**, garantizando seguridad incluso sin haber establecido un canal de confianza previamente.
+
