@@ -140,3 +140,67 @@ Para evaluar la calidad de la transmisión de paquetes:
 | Intercambio de clave | Diffie–Hellman, certificados, HMAC                   |
 
 ---
+
+### a) 192.168.0.10 Servidor y 192.168.0.11 Cliente
+
+![image](https://github.com/user-attachments/assets/fb0d2301-c60a-4f16-af68-9603cde5cf2c)
+
+### Carga útil
+
+Dentro de la sección TCP en Wireshark, suele haber una subsección llamada `[TCP segment data]` o simplemente `Data` (dependiendo de la versión). Ahí se encuentra la carga útil del paquete.
+
+En la vista hexadecimal + ASCII (panel inferior), los bytes resaltados que aparecen después de todos los encabezados corresponden al **payload**. Wireshark normalmente colorea o marca estos bytes como "Data".
+
+Por ejemplo, en una captura, en el offset destacado con los valores hexadecimales `6b 69 72 69 74 6f 72 6f 20 34`, en ASCII se lee `"kiritoro 4"` (nombre del grupo más número). Esa es la **carga útil** que tu script envió.
+
+![image](https://github.com/user-attachments/assets/4a1d8b04-4b3e-4e45-9b90-1930bc37a318)
+
+### c) Cálculo de latencias y jitter
+
+Para calcular latencias y jitter a partir del archivo de log, primero se definen las métricas involucradas y luego se extraen los datos registrados en los archivos.
+
+#### Definiciones y fórmulas
+
+**RTT (Round-Trip Time):**  
+Es el tiempo que transcurre desde que un cliente envía un paquete hasta que recibe la respuesta correspondiente. Se mide con el mismo reloj del cliente y se calcula como:
+
+Para cada paquete `i`:
+- `T_send,i`: instante en que se envió el paquete `i`.
+- `T_recv,i`: instante en que se recibió la respuesta correspondiente.
+
+**Latencia (round-trip):**
+L_i = T_recv,i - T_send,i
+
+markdown
+Copiar
+Editar
+
+**Latencia promedio:**
+L_avg = (1 / N) * ∑ L_i , para i = 1 hasta N
+
+markdown
+Copiar
+Editar
+
+**Latencia mínima y máxima:**
+L_min = min(L_i), L_max = max(L_i)
+
+**Jitter:**
+Se define como la variación entre latencias sucesivas. Una forma común de calcularlo es:
+J = (1 / (N - 1)) * ∑ |L_i - L_{i-1}| , para i = 2 hasta N
+
+
+---
+
+#### Resumen RTT (100 paquetes analizados)
+
+- **RTT promedio:** 0.002760 s  
+- **RTT mínima:** 0.001000 s  
+- **RTT máxima:** 0.006000 s  
+- **Jitter promedio:** 0.000612 s  
+
+---
+
+### a) Paquete UDP
+
+Se muestra un paquete UDP capturado. En Wireshark, se resalta la sección **User Datagram Protocol**, y dentro de ella se puede observar la subsección **Data**, donde se encuentra la carga útil del paquete.
