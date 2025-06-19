@@ -1,6 +1,6 @@
 # Trabajo práctico 5
 
-*Facultad de Ciencias Exactas, Fisicas y Naturales de la U.N.C**
+*Facultad de Ciencias Exactas, Fisicas y Naturales de la U.N.C*
 
 **Redes de Computadoras**
 
